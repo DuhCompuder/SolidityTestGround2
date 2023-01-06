@@ -48,6 +48,10 @@ contract Game {
         return result;
     }
 
+    function getGameCount() public view returns (uint256) {
+        return _gameCount;
+    }
+
     function playWithComputer(Options selected) public returns (string memory) {
         require(
             allGames[_gameCount].playerA == address(0x0) &&
@@ -77,7 +81,7 @@ contract Game {
             "PlayerB: Computer",
             address(this),
             computerSelected,
-            mapSelectionToString(selected)
+            mapSelectionToString(computerSelected)
         );
 
         string memory result = startGame();
